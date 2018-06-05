@@ -30,13 +30,24 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dru0khr1k',
+    'API_KEY': '448449425224767',
+    'API_SECRET': '9AgaqnWKgcj4PzzKy1Xt1EMwszw'
+}
+
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
 
     'rest_framework.authtoken',
     'api'
