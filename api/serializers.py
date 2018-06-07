@@ -8,7 +8,10 @@ class TimeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PrimeiraFaseSerializer(serializers.ModelSerializer):
+    mandante = TimeSerializer()
+    visitante = TimeSerializer()
+    
     class Meta:
         model = PrimeiraFase
-        fields = '__all__'
+        fields = ('id', 'grupo', 'data', 'mandante', 'visitante', 'gol_mandante', 'gol_visitante')
 
