@@ -18,6 +18,8 @@ class PrimeiraFase(models.Model):
     mandante  = models.ForeignKey('Time',  on_delete=models.CASCADE, related_name='mandante')
     visitante = models.ForeignKey('Time',  on_delete=models.CASCADE, related_name='visitante')
     data = models.DateTimeField()
+    gol_mandante = models.IntegerField(verbose_name='Gol Mandante', null=True, blank=True)
+    gol_visitante = models.IntegerField(verbose_name='Gol Visitante', null=True, blank=True)
 
     def __str__(self):
         return self.mandante.nome
