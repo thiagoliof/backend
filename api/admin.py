@@ -7,5 +7,9 @@ class TimeAdmin(admin.ModelAdmin):
 
     list_display = ['nome', 'image_tag', ]
 
+class PrimeiraFaseAdmin(admin.ModelAdmin):
+
+    list_display = ['confronto', 'data', 'grupo']
+
 admin.site.register(Time, TimeAdmin)
-admin.site.register(PrimeiraFase)
+admin.site.register(PrimeiraFase, PrimeiraFaseAdmin)
