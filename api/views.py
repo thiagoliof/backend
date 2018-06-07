@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .serializers import TimeSerializer
+from .models import Time
 
-# Create your views here.
+class CreateView(generics.ListCreateAPIView):
+    """This class defines the create behavior of our rest api."""
+    queryset = Time.objects.all()
+    serializer_class = TimeSerializer
+
+    def perform_create(self, serializer):
+        """Save the post data when creating a new bucketlist."""
+        serializer.save()

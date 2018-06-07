@@ -1,5 +1,9 @@
-from django.conf.urls import url
-from rest_framework.authtoken import views as drf_views
-urlpatterns = [
-    #url(r'^auth$', drf_views.obtain_auth_token, name='auth'),
-]
+from django.conf.urls import url, include
+from rest_framework.urlpatterns import format_suffix_patterns
+from .views import CreateView
+
+urlpatterns = {
+    url(r'^times/$', CreateView.as_view(), name="create"),
+}
+
+urlpatterns = format_suffix_patterns(urlpatterns)
