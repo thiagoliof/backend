@@ -1,5 +1,5 @@
 from rest_framework import serializers, generics
-from .models import Time
+from .models import Time, PrimeiraFase
 
 
 class TimeSerializer(serializers.ModelSerializer):
@@ -7,8 +7,8 @@ class TimeSerializer(serializers.ModelSerializer):
         model = Time
         fields = '__all__'
 
-class DetailsView(generics.RetrieveUpdateDestroyAPIView):
-    """This class handles the http GET, PUT and DELETE requests."""
+class PrimeiraFaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PrimeiraFase
+        fields = '__all__'
 
-    queryset = Time.objects.all()
-    serializer_class = TimeSerializer
